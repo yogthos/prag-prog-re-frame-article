@@ -1,6 +1,12 @@
-# Introducing Re-frame
+# Re-framing your Expectations
 
-This article will walk you through the basics of using ClojureScript [re-frame](https://github.com/Day8/re-frame). Re-frame is a framework built on top of [Reagent](http://reagent-project.github.io/) library. This article will introduce basic concepts behind re-frame, and illustrate using JavaScript interop using the [Chart.js](http://www.chartjs.org/) library. We'll be building a small application that will load JSON data from the Reddit API, and visualize it.
+If you've been keeping up with JavaScript front-end development, then you've probably heard of React by now. React is a user interface library that was open sourced by Facebook, and quickly gained popularity among front-end developers.
+
+One of the key insights behind React was that DOM manipulation is computationally expensive, and tends to be a performance bottleneck for many applications. React addresses this problem by keeping a Virtual DOM, and computing changes against it. Once the final set of changes is produced it is then applied to the actual DOM.
+
+This approach unburdens the developers from having to manually optimize DOM updates in their applications. The developer can now work from the perspective that the whole page will be repainted any time a change occurs, while React figures out the minimal set of DOM elements that actually need to be updated.
+
+React approach to UI development happens to be a perfect fit for a functional language. This article will give you a taste of developing an application using ClojureScript [re-frame](https://github.com/Day8/re-frame) framework built on top of React. We will introduce basic concepts behind re-frame, and illustrate JavaScript interop using the [Chart.js](http://www.chartjs.org/) library.
 
 ## Prerequisites
 
@@ -17,13 +23,11 @@ It is recommended that you use Chrome browser to follow along.
 
 ### Creating and running the project
 
-Run the following command to create a new project:
+We'll be building a small application that will load JSON data from the Reddit API, and visualize it. The first step is to create a new project for the application. This is accomplished by running the following command:
 
     lein new reagent-frontend reddit-viewer
 
-The above command will generate a new project using the [Reagent front-end template](https://github.com/reagent-project/reagent-frontend-template/) in the folder called `reddit-viewer`.
-
-Let's navigate to the project folder that was just created and see what was generated for us:
+The above command will generate a new project using the [Reagent front-end template](https://github.com/reagent-project/reagent-frontend-template/) in the folder called `reddit-viewer`. Let's navigate to the project folder that was just created and see what was generated for us:
 
 ```
 ├── LICENSE
